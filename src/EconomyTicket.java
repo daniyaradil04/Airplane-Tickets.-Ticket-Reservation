@@ -1,6 +1,11 @@
-public class EconomyTicket implements TicketType{
+public class EconomyTicket implements Ticket{
     @Override
-    public double calculatePrice(){
+    public double getCost(){
         return 40000.0;
+    }
+
+    @Override
+    public String getDescription() {
+        return "Economy class flight";
     }
 }

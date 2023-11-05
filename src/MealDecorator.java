@@ -1,10 +1,14 @@
 public class MealDecorator extends TicketDecorator{
-    public MealDecorator(TicketType decoratedTicket){
+    public MealDecorator(Ticket decoratedTicket){
         super(decoratedTicket);
+    }
+    @Override
+    public double getCost(){
+        return super.getCost() + 5000.0;
     }
 
     @Override
-    public double calculatePrice(){
-        return super.calculatePrice() + 5000.0;
+    public String getDescription() {
+        return super.getDescription() + "with Meal";
     }
 }

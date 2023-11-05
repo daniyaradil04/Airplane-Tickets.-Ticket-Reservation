@@ -1,12 +1,16 @@
-public abstract class TicketDecorator implements TicketType{
-    protected TicketType decoratedTicket;
+public abstract class TicketDecorator implements Ticket{
+    private Ticket decoratedTicket;
 
-    public TicketDecorator(TicketType decoratedTicket){
+    public TicketDecorator(Ticket decoratedTicket){
         this.decoratedTicket = decoratedTicket;
     }
 
     @Override
-    public double calculatePrice(){
-        return decoratedTicket.calculatePrice();
+    public double getCost(){
+        return decoratedTicket.getCost();
+    }
+    @Override
+    public String getDescription() {
+        return decoratedTicket.getDescription();
     }
 }
