@@ -17,10 +17,10 @@ public class Main {
                 int reservationID = resultSet.getInt("ReservationID");
                 int flightID = resultSet.getInt("FlightID");
 
-                System.out.println("Ticket ID" + ticketID);
-                System.out.println("Ticket type" + ticketType);
-                System.out.println("Reservation ID" + reservationID);
-                System.out.println("Flight ID" + flightID);
+                System.out.println("Ticket ID: " + ticketID);
+                System.out.println("Ticket type: " + ticketType);
+                System.out.println("Reservation ID: " + reservationID);
+                System.out.println("Flight ID: " + flightID);
                 System.out.println("********************************");
 
             }
