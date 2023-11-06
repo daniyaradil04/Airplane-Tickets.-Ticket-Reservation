@@ -9,6 +9,6 @@ public class MealDecorator extends TicketDecorator{
 
     @Override
     public String getDescription() {
-        return super.getDescription() + "with Meal";
+        return super.getDescription() + "with Meal ";
     }
 }

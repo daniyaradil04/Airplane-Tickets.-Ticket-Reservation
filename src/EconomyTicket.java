@@ -6,6 +6,6 @@ public class EconomyTicket implements Ticket{
 
     @Override
     public String getDescription() {
-        return "Economy class flight";
+        return "Economy class flight ";
     }
 }

@@ -1,16 +1,35 @@
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.SQLException;
 public class Main {
     public static void main(String[] args) {
-        ReservationNotifier reservationNotifier = new ReservationNotifier();
+        Connection connection = DatabaseConnection.getConnection();
+        String query = "SELECT * FROM tickets";
 
-        Ticket ticket = new EconomyTicket();
-        ticket = new MealDecorator(ticket);
-        ticket = new SeatDecorator(ticket);
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(query);
 
-        reservationNotifier.addObserver(new ReservationLogger());
-        reservationNotifier.notifyObservers(ticket);
+            while (resultSet.next()){
+                int ticketID = resultSet.getInt("TicketID");
+                String ticketType = resultSet.getString("TicketType");
+                int reservationID = resultSet.getInt("ReservationID");
+                int flightID = resultSet.getInt("FlightID");
 
-        ExternalTicketService externalService = new ExternalTicketServiceImpl();
-        ExternalTicketServiceAdapter adapter = new ExternalTicketServiceAdapter(externalService);
-        Ticket externalTicket = adapter.getExternalTicket();
+                System.out.println("Ticket ID" + ticketID);
+                System.out.println("Ticket type" + ticketType);
+                System.out.println("Reservation ID" + reservationID);
+                System.out.println("Flight ID" + flightID);
+                System.out.println("********************************");
+
+            }
+            resultSet.close();
+            statement.close();
+            connection.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+            System.err.println("An error has occured while working with database" + e.getMessage());
+        }
     }
 }
