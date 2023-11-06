@@ -15,14 +15,22 @@ public class Main {
 
         System.out.println("*************************");
 
+        TicketFactory ticketFactory = new TicketFactory();
         ReservationNotifier reservationNotifier = new ReservationNotifier();
 
-        Ticket ticket = new EconomyTicket();
-        ticket = new MealDecorator(ticket);
-        ticket = new SeatDecorator(ticket);
-        double totalPrice = ticket.getCost();
+        Ticket economyTicket = ticketFactory.createTicket("Economy");
+        economyTicket = new MealDecorator(economyTicket);
+        economyTicket = new SeatDecorator(economyTicket);
+        double totalPriceEco = economyTicket.getCost();
+
+
+        Ticket businessTicket = ticketFactory.createTicket("Business");
+        businessTicket = new MealDecorator(businessTicket);
+        businessTicket = new SeatDecorator(businessTicket);
+        double totalPriceBus = businessTicket.getCost();
         reservationNotifier.addObserver(new ReservationLogger());
-        reservationNotifier.notifyObservers(ticket, totalPrice);
+        reservationNotifier.notifyObservers(economyTicket, totalPriceEco);
+        reservationNotifier.notifyObservers(businessTicket, totalPriceBus);
 
         System.out.println("*************************");
 

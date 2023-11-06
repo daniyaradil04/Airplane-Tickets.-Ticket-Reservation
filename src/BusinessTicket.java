@@ -5,6 +5,6 @@ public class BusinessTicket implements Ticket{
     }
     @Override
     public String getDescription(){
-        return "Business class flight";
+        return "Business class flight ";
     }
 }
