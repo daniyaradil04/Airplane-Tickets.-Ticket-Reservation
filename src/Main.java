@@ -20,9 +20,11 @@ public class Main {
         Ticket ticket = new EconomyTicket();
         ticket = new MealDecorator(ticket);
         ticket = new SeatDecorator(ticket);
-
+        double totalPrice = ticket.getCost();
         reservationNotifier.addObserver(new ReservationLogger());
-        reservationNotifier.notifyObservers(ticket);
+        reservationNotifier.notifyObservers(ticket, totalPrice);
+
+        System.out.println("*************************");
 
         ExternalTicketService externalService = new ExternalTicketServiceImpl();
         ExternalTicketServiceAdapter adapter = new ExternalTicketServiceAdapter(externalService);
@@ -41,7 +43,7 @@ public class Main {
                 "WHERE T.TicketID = " + ticketID;
 
         try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(query);){
+             ResultSet resultSet = statement.executeQuery(query)){
             if(resultSet.next()){
                 int ticketId = resultSet.getInt("TicketID");
                 String ticketType = resultSet.getString("TicketType");

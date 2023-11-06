@@ -6,7 +6,7 @@ public class ReservationNotifier {
     public void addObserver(ReservationObserver observer){
         observers.add(observer);
     }
-    public void notifyObservers(Ticket ticket){
+    public void notifyObservers(Ticket ticket, double totalPrice){
         for(ReservationObserver observer : observers){
             observer.update(ticket);
         }
