@@ -10,7 +10,7 @@ public class ExternalTicketServiceImpl implements ExternalTicketService{
     }
 
     private String fetchTicketFromExternalService(){
-        return "data from external service {\"type\": \"Economy\"}";
+        return "data from external service Economy";
     }
     private Ticket parseExternalData(String externalData){
         try{
