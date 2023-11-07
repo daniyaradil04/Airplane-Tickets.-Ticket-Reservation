@@ -1,3 +1,7 @@
+package Decorator;
+
+import Tickets.Ticket;
+
 public class SeatDecorator extends TicketDecorator {
     public SeatDecorator(Ticket decoratedTicket){
         super(decoratedTicket);

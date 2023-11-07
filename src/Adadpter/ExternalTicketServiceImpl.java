@@ -1,3 +1,5 @@
+package Adadpter;
+import Tickets.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 

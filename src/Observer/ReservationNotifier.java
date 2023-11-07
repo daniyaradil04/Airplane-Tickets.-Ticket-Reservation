@@ -1,3 +1,7 @@
+package Observer;
+
+import Tickets.Ticket;
+
 import java.util.ArrayList;
 import java.util.List;
 public class ReservationNotifier {

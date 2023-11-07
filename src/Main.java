@@ -1,3 +1,13 @@
+import Adadpter.ExternalTicketService;
+import Adadpter.ExternalTicketServiceAdapter;
+import Adadpter.ExternalTicketServiceImpl;
+import Decorator.MealDecorator;
+import Decorator.SeatDecorator;
+import Factory.*;
+import Observer.ReservationLogger;
+import Observer.ReservationNotifier;
+import Singleton.DatabaseConnection;
+import Tickets.Ticket;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -14,19 +24,13 @@ public class Main {
         }
 
         System.out.println("*************************");
-
-        TicketFactory ticketFactory = new TicketFactory();
         ReservationNotifier reservationNotifier = new ReservationNotifier();
 
-        Ticket economyTicket = ticketFactory.createTicket("Economy");
-        economyTicket = new MealDecorator(economyTicket);
-        economyTicket = new SeatDecorator(economyTicket);
+        TicketFactory economyFactory = new EconomyTicketFactory();
+        Ticket economyTicket = economyFactory.createTicket();
         double totalPriceEco = economyTicket.getCost();
-
-
-        Ticket businessTicket = ticketFactory.createTicket("Business");
-        businessTicket = new MealDecorator(businessTicket);
-        businessTicket = new SeatDecorator(businessTicket);
+        TicketFactory businessFactory = new BusinessTicketFactory();
+        Ticket businessTicket = businessFactory.createTicket();
         double totalPriceBus = businessTicket.getCost();
         reservationNotifier.addObserver(new ReservationLogger());
         reservationNotifier.notifyObservers(economyTicket, totalPriceEco);
@@ -62,8 +66,8 @@ public class Main {
                 String departureTime = resultSet.getString("DepartureTime");
                 String arrivalTime = resultSet.getString("ArrivalTime");
 
-                System.out.println("Ticket ID: " + ticketID);
-                System.out.println("Ticket type: " + ticketType);
+                System.out.println("Tickets.Ticket ID: " + ticketID);
+                System.out.println("Tickets.Ticket type: " + ticketType);
                 System.out.println("Customer Name: " + customerName);
                 System.out.println("Total price: " + totalPrice);
                 System.out.println("Departure city: " + departureCity);
@@ -72,7 +76,7 @@ public class Main {
                 System.out.println("Arrival time: " + arrivalTime);
             }
             else{
-                System.out.println("Ticket with id " + ticketID + "is not found");
+                System.out.println("Tickets.Ticket with id " + ticketID + "is not found");
             }
         }catch (SQLException e){
             e.printStackTrace();

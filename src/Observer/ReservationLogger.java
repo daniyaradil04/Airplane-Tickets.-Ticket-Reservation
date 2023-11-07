@@ -1,3 +1,7 @@
+package Observer;
+
+import Tickets.Ticket;
+
 public class ReservationLogger implements ReservationObserver{
     @Override
     public void update(Ticket ticket){

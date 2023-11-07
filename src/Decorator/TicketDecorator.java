@@ -1,4 +1,8 @@
-public abstract class TicketDecorator implements Ticket{
+package Decorator;
+
+import Tickets.Ticket;
+
+public  class TicketDecorator implements Ticket {
     private Ticket decoratedTicket;
 
     public TicketDecorator(Ticket decoratedTicket){

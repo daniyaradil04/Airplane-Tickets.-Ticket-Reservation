@@ -1,3 +1,6 @@
+package Adadpter;
+import Tickets.*;
+
 public class ExternalTicketServiceAdapter implements ExternalTicketService{
     private ExternalTicketService externalService;
 

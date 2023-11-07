@@ -1,4 +1,8 @@
-public class BusinessTicket implements Ticket{
+package Tickets;
+
+import Tickets.Ticket;
+
+public class BusinessTicket implements Ticket {
     @Override
     public double getCost(){
         return 65000.0;
