@@ -24,3 +24,16 @@ The Singleton.DatabaseConnection class uses the Singleton Pattern to maintain a 
 ### 6. Factory pattern
 Usage: The Factory Pattern is implemented to create instances of different ticket types based on their category. It centralizes the creation logic, making it easier to extend the system with new ticket types.
 The Factory.TicketFactory class is responsible for creating instances of Tickets.EconomyTicket and Tickets.BusinessTicket based on the provided type.
+
+The Strategy Pattern defines the cost calculation strategy for different ticket types, allowing flexibility in pricing.
+The Decorator Pattern enhances tickets with additional options like meals and seats, providing a rich set of features.
+The Adapter Pattern ensures compatibility with external services, enabling the integration of tickets from external sources.
+The Observer Pattern notifies components like Observer.ReservationLogger about ticket reservations, enhancing the monitoring and logging capabilities.
+The Singleton Pattern provides a single, shared database connection used by various parts of the application.
+The Factory Pattern simplifies the creation of different ticket types, offering a centralized mechanism for creating tickets.
+These patterns collectively contribute to a well-structured, maintainable, and expandable airline ticket reservation system.
+
+This README provides an overview of how each design pattern is employed in the project and how they work in concert to create a comprehensive and robust airline ticket reservation system.
+
+
+![newnew](https://github.com/daniyaradil04/sdp_final/assets/124418726/5fc1f00f-bad2-4be0-99a0-bc6b7c2e069e)
