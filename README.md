@@ -1,5 +1,5 @@
 # Airplane Tickets. Ticket Reservation
-## This is Software Design Pattern final project with title "Airplane Tickets.Ticket Reservation Project"
+## This is Software Design Pattern pet project with title "Airplane Tickets.Ticket Reservation Project"
 
 ### 1. Strategy Pattern
 Usage: The Strategy Pattern is used to provide different types of tickets, such as Economy Class and Business Class, with varying behaviors for calculating their costs. It enables the system to switch between different ticket types while keeping the implementation details hidden.
